@@ -1,1 +1,3 @@
-<p>user-list works!</p>
+@for (user of props.users; track user) {
+  <lib-user-container [user]="user"></lib-user-container>
+}

@@ -12,6 +12,14 @@ describe('UserListContainer', () => {
 
     fixture = TestBed.createComponent(UserListContainer);
     component = fixture.componentInstance;
+
+    component.users = [{
+      id: 1,
+      name: 'name',
+      lastName: 'last name',
+      email: 'email@email.com'
+    }];
+    
     fixture.detectChanges();
   });
 

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserComponent } from '../component/user.component';
+import { IUser } from '@demo-testing-app/shared';
 
 @Component({
   selector: 'lib-user-container',
@@ -9,4 +10,6 @@ import { UserComponent } from '../component/user.component';
   templateUrl: './user.container.html',
   styleUrl: './user.container.scss',
 })
-export class UserContainer {}
+export class UserContainer {
+  @Input() user!: IUser;
+}

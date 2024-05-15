@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IUser } from '@demo-testing-app/shared';
 
@@ -8,7 +8,8 @@ import { IUser } from '@demo-testing-app/shared';
   imports: [CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserComponent {
-  @Input() props!: IUser;
+  @Input() user!: IUser;
 }

@@ -49,8 +49,7 @@
         "plugin:@nx/angular-template",
         "plugin:@angular-eslint/template/recommended",
         "plugin:prettier/recommended"
-      ],
-      "rules": {}
+      ]
     }
   ],
   "extends": ["./.eslintrc.base.json"]

@@ -4,16 +4,15 @@ import { appRoutes } from './app.routes';
 import { provideStore, provideState } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
-import * as fromStore from './+state/store.reducer';
-import { StoreEffects } from './+state/store.effects';
+import { STORE_FEATURE_KEY, reducer } from '@demo-testing-app/shared';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideEffects(StoreEffects),
-    provideState(fromStore.STORE_FEATURE_KEY, fromStore.storeReducer),
-    provideStoreDevtools({ logOnly: !isDevMode() }),
+    // provideEffects(StoreEffects),
+    provideState(STORE_FEATURE_KEY, reducer),
     provideEffects(),
     provideStore(),
+    provideStoreDevtools({ logOnly: !isDevMode() }),
     provideRouter(appRoutes),
   ],
 };

@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserListComponent } from './user-list.component';
+import { of } from 'rxjs';
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -12,6 +13,18 @@ describe('UserListComponent', () => {
 
     fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
+
+    component.props = {
+      users$: of([{
+        id: 1,
+        name: 'name',
+        lastName: 'last name',
+        email: 'email@email.com'
+      }]),
+      onAddClick: () => {},
+      onRemoveClick: () => {}
+    }
+
     fixture.detectChanges();
   });
 
