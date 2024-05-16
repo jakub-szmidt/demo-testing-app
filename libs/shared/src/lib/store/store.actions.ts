@@ -7,3 +7,5 @@ export const removeUser = createAction(
   'REMOVE USER',
   props<{ userId: number }>(),
 );
+
+export const removeLastUser = createAction('REMOVE LAST USER');

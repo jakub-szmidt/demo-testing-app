@@ -1,6 +1,4 @@
-export * from './lib/models/user.model'
-export * from './lib/store/store.actions'
-export * from './lib/store/store.reducer'
-export * from './lib/store/store.selectors'
-export * from './lib/store/store.models'
-export * from './lib/utils/utils'
+export * from './lib/models/user.model';
+export * from './lib/utils/utils';
+export * from './lib/providers/users/users.service';
+export * as StoreReducer from './lib/store/store.reducer';

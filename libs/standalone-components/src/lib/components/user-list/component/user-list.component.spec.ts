@@ -15,15 +15,17 @@ describe('UserListComponent', () => {
     component = fixture.componentInstance;
 
     component.props = {
-      users$: of([{
-        id: 1,
-        name: 'name',
-        lastName: 'last name',
-        email: 'email@email.com'
-      }]),
+      users$: of([
+        {
+          id: 1,
+          name: 'name',
+          lastName: 'last name',
+          email: 'email@email.com',
+        },
+      ]),
       onAddClick: () => {},
-      onRemoveClick: () => {}
-    }
+      onRemoveClick: () => {},
+    };
 
     fixture.detectChanges();
   });

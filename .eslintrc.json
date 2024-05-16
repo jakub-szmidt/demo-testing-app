@@ -2,54 +2,12 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": "*.json",
-      "parser": "jsonc-eslint-parser",
-      "rules": {}
-    },
-    {
       "files": ["*.ts", "*.tsx"],
       "rules": {}
     },
     {
       "files": ["*.js", "*.jsx"],
       "rules": {}
-    },
-    {
-      "files": ["*.ts"],
-      "extends": [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@angular-eslint/recommended",
-        "plugin:@angular-eslint/template/process-inline-templates",
-        "plugin:@nx/angular",
-        "plugin:prettier/recommended"
-      ],
-      "rules": {
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ]
-      }
-    },
-    {
-      "files": ["*.html"],
-      "extends": [
-        "plugin:@nx/angular-template",
-        "plugin:@angular-eslint/template/recommended",
-        "plugin:prettier/recommended"
-      ]
     }
   ],
   "extends": ["./.eslintrc.base.json"]

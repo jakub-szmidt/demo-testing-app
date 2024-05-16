@@ -1,4 +1,4 @@
 import { Route } from '@angular/router';
-import { UserContainer } from '@demo-testing-app/standalone-components';
+import { UserListContainer } from '@demo-testing-app/standalone-components';
 
-export const appRoutes: Route[] = [{ path: '', component: UserContainer }];
+export const appRoutes: Route[] = [{ path: '', component: UserListContainer }];

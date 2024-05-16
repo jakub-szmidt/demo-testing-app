@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export interface UserListComponentProps {
   users$: Observable<IUser[]>;
   onAddClick: () => void;
-  onRemoveClick: (userId: number) => void;
+  onRemoveClick: () => void;
 }
 
 @Component({
@@ -16,7 +16,7 @@ export interface UserListComponentProps {
   imports: [CommonModule, UserContainer],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserListComponent {
   @Input() props!: UserListComponentProps;

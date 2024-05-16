@@ -20,4 +20,11 @@ export const reducer: ActionReducer<StoreRootModel> = createReducer(
       users: state.users.filter((user) => user.id !== action.userId),
     }),
   ),
+  on(
+    StoreActions.removeLastUser,
+    (state): StoreRootModel => ({
+      ...state,
+      users: state.users.slice(0, -1),
+    }),
+  ),
 );
