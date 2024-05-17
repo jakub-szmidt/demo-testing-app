@@ -9,9 +9,9 @@ import { StoreReducer } from '@demo-testing-app/shared';
 export const appConfig: ApplicationConfig = {
   providers: [
     // provideEffects(StoreEffects),
+    provideStore(),
     provideState(StoreReducer.STORE_FEATURE_KEY, StoreReducer.reducer),
     provideEffects(),
-    provideStore(),
     provideStoreDevtools({ logOnly: !isDevMode() }),
     provideRouter(appRoutes),
   ],

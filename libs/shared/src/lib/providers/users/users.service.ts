@@ -14,7 +14,8 @@ export class UsersService {
   constructor(private store: Store<StoreRootModel>) {}
 
   getUsers(): Observable<IUser[]> {
-    return this.store.select(StoreSelectors.selectUsers);
+    const users = this.store.select(StoreSelectors.selectUsers);
+    return users;
   }
 
   addUser(user: IUser): void {
