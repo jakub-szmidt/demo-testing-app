@@ -22,7 +22,7 @@ export class UsersService {
     this.store.dispatch(StoreActions.addUser({ user }));
   }
 
-  removeUser(userId: number): void {
+  removeUserById(userId: number): void {
     this.store.dispatch(StoreActions.removeUser({ userId }));
   }
 

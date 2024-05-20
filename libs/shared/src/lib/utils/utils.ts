@@ -1,13 +1,13 @@
 import { IUser } from '../models/user.model';
 
-export const generateRandomString = (): string => {
+export const generateRandomString = (length: number): string => {
   const characters =
     'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const charactersLength = characters.length;
   let counter = 0;
   let result = '';
 
-  while (counter < 10) {
+  while (counter < length) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
     counter += 1;
   }
@@ -16,9 +16,11 @@ export const generateRandomString = (): string => {
 };
 
 export const generateRandomUser = (): IUser => {
+  const stringLength = 10;
+
   const id = generateRandomNumberFromInterval(1, 100);
-  const name = generateRandomString();
-  const lastName = generateRandomString();
+  const name = generateRandomString(stringLength);
+  const lastName = generateRandomString(stringLength);
   const email = `${name}_${lastName}@email.com`;
 
   return {
