@@ -8,7 +8,7 @@ import { IUser } from '@demo-testing-app/shared';
   imports: [CommonModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class UserComponent {
   @Input() user!: IUser;
