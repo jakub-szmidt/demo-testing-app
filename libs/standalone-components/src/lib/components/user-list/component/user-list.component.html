@@ -1,8 +1,15 @@
-@for (user of props.users$ | async; track user) {
-  <lib-user-container [user]="user"></lib-user-container>
+@for (user of props.users$ | async; track user; let index = $index) {
+  <lib-user-container
+    [id]="'user-' + (index + 1)"
+    [user]="user"
+  ></lib-user-container>
 }
 
 <div>
-  <button (click)="props.onAddClick()">Add random user</button>
-  <button (click)="props.onRemoveClick()">Remove last user</button>
+  <button id="add-random-user-button" (click)="props.onAddClick()">
+    Add random user
+  </button>
+  <button id="remove-last-user-button" (click)="props.onRemoveClick()">
+    Remove last user
+  </button>
 </div>
