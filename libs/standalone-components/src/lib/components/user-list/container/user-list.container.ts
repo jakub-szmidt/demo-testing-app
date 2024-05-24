@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   UserListComponent,
@@ -17,10 +17,12 @@ export interface UserListContainerProps {
   templateUrl: './user-list.container.html',
   styleUrl: './user-list.container.scss',
 })
-export class UserListContainer {
-  props: UserListContainerProps;
+export class UserListContainer implements OnInit {
+  props!: UserListContainerProps;
 
-  constructor(private usersService: UsersService) {
+  constructor(private usersService: UsersService) {}
+
+  ngOnInit(): void {
     this.props = {
       componentProps: {
         users$: this.usersService.getUsers(),
