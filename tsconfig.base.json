@@ -15,6 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@demo-testing-app/module-components": [
+        "libs/module-components/src/index.ts"
+      ],
       "@demo-testing-app/shared": ["libs/shared/src/index.ts"],
       "@demo-testing-app/standalone-components": [
         "libs/standalone-components/src/index.ts"
