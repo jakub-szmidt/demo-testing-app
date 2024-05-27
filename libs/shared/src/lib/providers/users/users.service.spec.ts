@@ -32,6 +32,7 @@ describe('UsersService', () => {
 
   afterEach(() => {
     store.resetSelectors();
+    jest.clearAllMocks();
   });
 
   it('should be created', () => {
