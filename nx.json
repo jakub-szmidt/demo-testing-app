@@ -78,6 +78,6 @@
       "style": "scss"
     }
   },
-  "defaultProject": "demo-testing-app",
+  "defaultProject": "standalone-components-app",
   "nxCloudAccessToken": "NzMwZTFlNjgtNTdlNi00Zjg4LTg1MGItZWNkNjJjY2E4ZmVjfHJlYWQtd3JpdGU="
 }

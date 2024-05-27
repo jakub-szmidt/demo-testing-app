@@ -1,9 +1,9 @@
 {
-  "name": "demo-testing-app",
+  "name": "standalone-components-app",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
-  "sourceRoot": "apps/demo-testing-app/src",
+  "sourceRoot": "apps/standalone-components-app/src",
   "tags": [],
   "targets": {
     "build": {
@@ -11,16 +11,16 @@
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/demo-testing-app",
-        "index": "apps/demo-testing-app/src/index.html",
-        "browser": "apps/demo-testing-app/src/main.ts",
+        "index": "apps/standalone-components-app/src/index.html",
+        "browser": "apps/standalone-components-app/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/demo-testing-app/tsconfig.app.json",
+        "tsConfig": "apps/standalone-components-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "apps/demo-testing-app/src/favicon.ico",
-          "apps/demo-testing-app/src/assets"
+          "apps/standalone-components-app/src/favicon.ico",
+          "apps/standalone-components-app/src/assets"
         ],
-        "styles": ["apps/demo-testing-app/src/styles.scss"],
+        "styles": ["apps/standalone-components-app/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -51,10 +51,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "demo-testing-app:build:production"
+          "buildTarget": "standalone-components-app:build:production"
         },
         "development": {
-          "buildTarget": "demo-testing-app:build:development"
+          "buildTarget": "standalone-components-app:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -62,26 +62,26 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "demo-testing-app:build"
+        "buildTarget": "standalone-components-app:build"
       }
     },
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["apps/demo-testing-app/src"]
+        "lintFilePatterns": ["apps/standalone-components-app/src"]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectName}"],
       "options": {
-        "jestConfig": "apps/demo-testing-app/jest.config.app.ts"
+        "jestConfig": "apps/standalone-components-app/jest.config.app.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "demo-testing-app:build",
+        "buildTarget": "standalone-components-app:build",
         "port": 4200,
         "staticFilePath": "dist/demo-testing-app/browser",
         "spa": true
