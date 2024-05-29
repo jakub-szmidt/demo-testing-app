@@ -1,9 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserListComponent } from './user-list.component';
 import { of } from 'rxjs';
-import { DebugElement } from '@angular/core';
+import { Component, DebugElement, Input } from '@angular/core';
 import { IUser } from '@demo-testing-app/shared';
 import { By } from '@angular/platform-browser';
+import { UserContainer } from '../../user/container/user.container';
+
+@Component({
+  selector: 'lib-user-container',
+  template: ``,
+  standalone: true,
+})
+export class MockUserContainer {
+  @Input() user!: IUser;
+}
 
 describe('UserListComponent', () => {
   let component: UserListComponent;
@@ -11,14 +21,19 @@ describe('UserListComponent', () => {
   let debugElement: DebugElement;
 
   beforeEach(async () => {
+    TestBed.overrideComponent(UserListComponent, {
+      remove: { imports: [UserContainer] },
+      add: { imports: [MockUserContainer] },
+    });
+    TestBed.overrideComponent(UserListComponent, {
+      set: { host: { '(click)': 'dummy' } },
+    });
+
     await TestBed.configureTestingModule({
       imports: [UserListComponent],
     }).compileComponents();
 
-    fixture = TestBed.overrideComponent(UserListComponent, {
-      set: { host: { '(click)': 'dummy' } },
-    }).createComponent(UserListComponent);
-
+    fixture = TestBed.createComponent(UserListComponent);
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
 
