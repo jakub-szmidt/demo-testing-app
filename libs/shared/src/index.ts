@@ -4,3 +4,6 @@ export * from './lib/providers/users/users.service';
 export * as StoreReducer from './lib/store/store.reducer';
 export * from './lib/models/user-list.component.props';
 export * from './lib/models/user-list.container.props';
+export * from './lib/pipes/capitalize/capitalize.pipe';
+export * from './lib/pipes/capitalize/capitalize.pipe.mock';
+export * from './lib/shared.module';

@@ -10,5 +10,5 @@ import { UserContainer } from '@demo-testing-app/standalone-components';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'demo-testing-app';
+  title = 'standalone-components-app';
 }

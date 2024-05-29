@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserComponent } from './user.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import { CapitalizePipe, MockCapitalizePipe } from '@demo-testing-app/shared';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -9,6 +10,11 @@ describe('UserComponent', () => {
   let debugElement: DebugElement;
 
   beforeEach(async () => {
+    TestBed.overrideComponent(UserComponent, {
+      remove: { imports: [CapitalizePipe] },
+      add: { imports: [MockCapitalizePipe] },
+    });
+
     await TestBed.configureTestingModule({
       imports: [UserComponent],
     }).compileComponents();

@@ -4,9 +4,10 @@ import { UserComponent } from './user/component/user.component';
 import { UserContainer } from './user/container/user.container';
 import { UserListContainer } from './user-list/container/user-list.container';
 import { UserListComponent } from './user-list/component/user-list.component';
+import { CapitalizePipe, SharedModule } from '@demo-testing-app/shared';
 
 @NgModule({
-  imports: [CommonModule],
+  imports: [CommonModule, CapitalizePipe, SharedModule],
   declarations: [
     UserComponent,
     UserContainer,

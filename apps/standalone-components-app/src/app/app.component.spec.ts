@@ -15,9 +15,9 @@ describe('AppComponent', () => {
     expect(compiled).toBeTruthy();
   });
 
-  it(`should have as title 'demo-testing-app'`, () => {
+  it(`should have as title 'standalone-components-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('demo-testing-app');
+    expect(app.title).toEqual('standalone-components-app');
   });
 });

@@ -1,14 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserListContainer } from './user-list.container';
 import { of } from 'rxjs';
-import { provideMockStore } from '@ngrx/store/testing/index';
 import { Component, DebugElement, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UsersService } from '@demo-testing-app/shared';
-import {
-  UserListComponent,
-  UserListComponentProps,
-} from '../component/user-list.component';
+import { UserListComponentProps, UsersService } from '@demo-testing-app/shared';
+import { UserListComponent } from '../component/user-list.component';
 
 const mockUsersService = {
   getUsers: jest.fn(),
@@ -45,10 +41,7 @@ describe('UserListContainer', () => {
 
     await TestBed.configureTestingModule({
       imports: [UserListContainer],
-      providers: [
-        provideMockStore(),
-        { provide: UsersService, useValue: mockUsersService },
-      ],
+      providers: [{ provide: UsersService, useValue: mockUsersService }],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserListContainer);
