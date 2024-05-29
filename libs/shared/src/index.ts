@@ -9,3 +9,5 @@ export * from './lib/pipes/capitalize/capitalize.pipe.mock';
 export * from './lib/pipes/mail/mail.pipe';
 export * from './lib/pipes/mail/mail.pipe.mock';
 export * from './lib/shared.module';
+export * from './lib/directives/highlight/highlight.directive';
+export * from './lib/enums/colors.enum';
