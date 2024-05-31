@@ -1,16 +1,16 @@
 import { Component, DebugElement } from '@angular/core';
-import { HighlightDirective } from './highlight.directive';
+import { BoldDirective } from './bold.directive';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 @Component({
   standalone: true,
-  template: `<h2 libHighlight></h2>`,
-  imports: [HighlightDirective],
+  template: `<h2 libBold></h2>`,
+  imports: [BoldDirective],
 })
 class HostComponent {}
 
-describe('HighlightDirective', () => {
+describe('BoldDirective', () => {
   let fixture: ComponentFixture<HostComponent>;
   let debugElement: DebugElement;
 
@@ -26,7 +26,7 @@ describe('HighlightDirective', () => {
   });
 
   it('should create an instance', () => {
-    const directive = new HighlightDirective(fixture.elementRef);
+    const directive = new BoldDirective(fixture.elementRef);
 
     expect(directive).toBeTruthy();
   });
@@ -37,6 +37,6 @@ describe('HighlightDirective', () => {
     element.dispatchEvent(new MouseEvent('mouseenter'));
     fixture.detectChanges();
 
-    expect(element.style.backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(element.style.fontWeight).toBe('bold');
   });
 });

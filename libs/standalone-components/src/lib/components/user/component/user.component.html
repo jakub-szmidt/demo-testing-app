@@ -1,9 +1,9 @@
 <h3 id="user-id-title" libHighlight>User ID</h3>
 <div id="user-id">{{ user.id }}</div>
 <h3 id="user-name-title">User Name</h3>
-<div id="user-name">{{ user.name | capitalize }}</div>
+<div id="user-name" libBold>{{ user.name | capitalize }}</div>
 <h3 id="user-last-name-title">User Last Name</h3>
-<div id="user-last-name">{{ user.lastName | capitalize }}</div>
+<div id="user-last-name" libBold>{{ user.lastName | capitalize }}</div>
 <h3 id="user-email-title">User Email</h3>
 <div id="user-email">
   <a [href]="user.email | mail">{{ user.email }}</a>
