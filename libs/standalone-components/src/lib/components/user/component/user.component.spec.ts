@@ -3,9 +3,13 @@ import { UserComponent } from './user.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import {
+  BoldDirective,
   CapitalizePipe,
+  HighlightDirective,
   MailPipe,
+  MockBoldDirective,
   MockCapitalizePipe,
+  MockHighlightDirective,
   MockMailPipe,
   SharedModule,
 } from '@demo-testing-app/shared';
@@ -17,16 +21,22 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     TestBed.overrideComponent(UserComponent, {
-      remove: { imports: [CapitalizePipe] },
-      add: { imports: [MockCapitalizePipe] },
+      remove: { imports: [CapitalizePipe, HighlightDirective] },
+      add: { imports: [MockCapitalizePipe, MockHighlightDirective] },
     });
     TestBed.overrideComponent(UserComponent, {
       set: { host: { '(click)': 'dummy' } }, //this is needed to test change of the component's Inputs with ChangeDetectionStrategy.OnPush
     });
 
     TestBed.overrideModule(SharedModule, {
-      remove: { declarations: [MailPipe], exports: [MailPipe] },
-      add: { declarations: [MockMailPipe], exports: [MockMailPipe] },
+      remove: {
+        declarations: [MailPipe, BoldDirective],
+        exports: [MailPipe, BoldDirective],
+      },
+      add: {
+        declarations: [MockMailPipe, MockBoldDirective],
+        exports: [MockMailPipe, MockBoldDirective],
+      },
     });
 
     await TestBed.configureTestingModule({

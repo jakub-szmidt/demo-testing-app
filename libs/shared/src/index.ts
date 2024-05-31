@@ -10,4 +10,7 @@ export * from './lib/pipes/mail/mail.pipe';
 export * from './lib/pipes/mail/mail.pipe.mock';
 export * from './lib/shared.module';
 export * from './lib/directives/highlight/highlight.directive';
+export * from './lib/directives/highlight/highlight.directive.mock';
+export * from './lib/directives/bold/bold.directive';
+export * from './lib/directives/bold/bold.directive.mock';
 export * from './lib/enums/colors.enum';
