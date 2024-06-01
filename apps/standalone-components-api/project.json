@@ -1,0 +1,63 @@
+{
+  "name": "standalone-components-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/standalone-components-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "platform": "node",
+        "outputPath": "dist/apps/standalone-components-api",
+        "format": ["cjs"],
+        "bundle": false,
+        "main": "apps/standalone-components-api/src/main.ts",
+        "tsConfig": "apps/standalone-components-api/tsconfig.app.json",
+        "assets": ["apps/standalone-components-api/src/assets"],
+        "generatePackageJson": true,
+        "esbuildOptions": {
+          "sourcemap": true,
+          "outExtension": {
+            ".js": ".js"
+          }
+        }
+      },
+      "configurations": {
+        "development": {},
+        "production": {
+          "esbuildOptions": {
+            "sourcemap": false,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "standalone-components-api:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "standalone-components-api:build:development"
+        },
+        "production": {
+          "buildTarget": "standalone-components-api:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/standalone-components-api/jest.config.ts"
+      }
+    }
+  }
+}
