@@ -9,6 +9,8 @@ import {
   HighlightDirective,
   SharedModule,
 } from '@demo-testing-app/shared';
+import { InfoComponent } from './info/component/info.component';
+import { InfoContainer } from './info/container/info.container';
 
 @NgModule({
   imports: [CommonModule, CapitalizePipe, SharedModule, HighlightDirective],
@@ -17,6 +19,8 @@ import {
     UserContainer,
     UserListContainer,
     UserListComponent,
+    InfoComponent,
+    InfoContainer,
   ],
 })
 export class ModuleComponentsModule {}
