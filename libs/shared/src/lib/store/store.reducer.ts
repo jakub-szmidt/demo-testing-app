@@ -27,4 +27,11 @@ export const reducer: ActionReducer<StoreRootModel> = createReducer(
       users: state.users.slice(0, -1),
     }),
   ),
+  on(
+    StoreActions.setInfoTextToDisplay,
+    (state, action): StoreRootModel => ({
+      ...state,
+      infoTextToDisplay: action.textToDisplay,
+    }),
+  ),
 );

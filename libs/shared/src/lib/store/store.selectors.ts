@@ -10,3 +10,8 @@ export const selectUsers = createSelector(
   selectStoreState,
   (state: StoreRootModel) => state.users,
 );
+
+export const selectInfoTextToDisplay = createSelector(
+  selectStoreState,
+  (state: StoreRootModel) => state.infoTextToDisplay,
+);

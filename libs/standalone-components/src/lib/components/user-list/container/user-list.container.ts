@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UserListComponent } from '../component/user-list.component';
-import { UserListContainerProps, UsersService } from '@demo-testing-app/shared';
+import {
+  StoreActions,
+  UserListContainerProps,
+  UsersService,
+} from '@demo-testing-app/shared';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'lib-user-list-container',
@@ -13,7 +18,10 @@ import { UserListContainerProps, UsersService } from '@demo-testing-app/shared';
 export class UserListContainer implements OnInit {
   props!: UserListContainerProps;
 
-  constructor(private usersService: UsersService) {}
+  constructor(
+    private usersService: UsersService,
+    private store: Store,
+  ) {}
 
   ngOnInit(): void {
     this.props = {
@@ -21,6 +29,8 @@ export class UserListContainer implements OnInit {
         users$: this.usersService.getUsers(),
         onAddClick: (): void => this.usersService.addRandomUser(),
         onRemoveClick: (): void => this.usersService.removeLastUser(),
+        onInfoClick: (): void =>
+          this.store.dispatch(StoreActions.navigateToInfoPage()),
       },
     };
   }

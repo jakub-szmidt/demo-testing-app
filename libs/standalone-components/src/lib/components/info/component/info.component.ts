@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { InfoComponentProps } from '@demo-testing-app/shared';
 
 @Component({
   selector: 'lib-info-component',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoComponent {
-  @Input() textToDisplay = '';
+  @Input() props!: InfoComponentProps;
 }

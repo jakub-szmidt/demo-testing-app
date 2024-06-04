@@ -9,3 +9,12 @@ export const removeUser = createAction(
 );
 
 export const removeLastUser = createAction('REMOVE LAST USER');
+
+export const navigateToRootPage = createAction('NAVIGATE TO ROOT PAGE');
+
+export const navigateToInfoPage = createAction('NAVIGATE TO INFO PAGE');
+
+export const setInfoTextToDisplay = createAction(
+  'SET INFO TEXT TO DISPLAY',
+  props<{ textToDisplay: string }>(),
+);

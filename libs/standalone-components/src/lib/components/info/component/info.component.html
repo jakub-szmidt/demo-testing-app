@@ -1,2 +1,2 @@
-<p>{{ textToDisplay }}</p>
-<button>Back</button>
+<p>{{ props.textToDisplay$ | async }}</p>
+<button (click)="props.onBackClick()">Back</button>

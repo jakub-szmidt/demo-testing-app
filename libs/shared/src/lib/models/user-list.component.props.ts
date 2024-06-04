@@ -5,4 +5,5 @@ export interface UserListComponentProps {
   users$: Observable<IUser[]>;
   onAddClick: () => void;
   onRemoveClick: () => void;
+  onInfoClick: () => void;
 }
