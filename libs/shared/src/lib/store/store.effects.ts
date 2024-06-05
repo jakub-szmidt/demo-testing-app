@@ -9,6 +9,7 @@ import {
 } from './store.actions';
 import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { INFO_ROUTE, ROOT_ROUTE } from '../routes/app.routes';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class StoreEffects {
@@ -26,8 +27,8 @@ export class StoreEffects {
           map((response) =>
             setInfoTextToDisplay({ textToDisplay: response.textToDisplay }),
           ),
-          catchError(() =>
-            of(setInfoTextToDisplay({ textToDisplay: 'error' })),
+          catchError((error: HttpErrorResponse) =>
+            of(setInfoTextToDisplay({ textToDisplay: error.message })),
           ),
         ),
       ),

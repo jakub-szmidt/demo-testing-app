@@ -62,15 +62,16 @@ describe('StoreEffects', () => {
     });
 
     it('should return SET INFO TEXT TO DISPLAY with error on failure', (done) => {
+      const errorMessage = 'some error';
       mockInfoService.getInfo.mockReturnValue(
-        throwError(() => new Error('some error')),
+        throwError(() => new Error(errorMessage)),
       );
 
       actions$ = of(navigateToInfoPage());
 
       effects.loadInfoPage$.subscribe((action) => {
         expect(action).toEqual(
-          setInfoTextToDisplay({ textToDisplay: 'error' }),
+          setInfoTextToDisplay({ textToDisplay: errorMessage }),
         );
         done();
       });
