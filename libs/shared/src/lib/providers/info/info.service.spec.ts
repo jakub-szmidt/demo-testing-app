@@ -27,7 +27,7 @@ describe('InfoService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should make http call on getInfo call', (done) => {
+  it('should make http call on getInfo', (done) => {
     const data: InfoResponse = {
       textToDisplay: 'text from http',
     };

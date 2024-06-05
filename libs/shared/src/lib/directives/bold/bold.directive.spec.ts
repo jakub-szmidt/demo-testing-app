@@ -6,7 +6,7 @@ import { SharedModule } from '../../shared.module';
 
 @Component({
   standalone: true,
-  template: `<h2 libBold></h2>`,
+  template: `<h2 libBold>Text</h2>`,
   imports: [SharedModule],
 })
 class HostComponent {}
@@ -32,7 +32,7 @@ describe('BoldDirective', () => {
     expect(directive).toBeTruthy();
   });
 
-  it('should highlight in red on mouse hover', () => {
+  it(`should change text's style to bold on mouse hover`, () => {
     const element: HTMLElement = debugElement.query(By.css('h2')).nativeElement;
 
     element.dispatchEvent(new MouseEvent('mouseenter'));

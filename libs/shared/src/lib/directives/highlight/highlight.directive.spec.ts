@@ -5,7 +5,7 @@ import { By } from '@angular/platform-browser';
 
 @Component({
   standalone: true,
-  template: `<h2 libHighlight></h2>`,
+  template: `<h2 libHighlight>Text</h2>`,
   imports: [HighlightDirective],
 })
 class HostComponent {}
