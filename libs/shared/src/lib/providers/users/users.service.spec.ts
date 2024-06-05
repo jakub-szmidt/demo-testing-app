@@ -15,6 +15,7 @@ const initialState: StoreRootModel = {
       email: 'email@email.com',
     },
   ],
+  infoTextToDisplay: 'infotext',
 };
 
 describe('UsersService', () => {

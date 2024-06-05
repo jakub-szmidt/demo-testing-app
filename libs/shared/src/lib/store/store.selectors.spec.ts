@@ -1,5 +1,5 @@
 import { StoreRootModel } from './store.models';
-import { selectUsers } from './store.selectors';
+import { selectInfoTextToDisplay, selectUsers } from './store.selectors';
 
 describe('store selector', () => {
   const initialState: StoreRootModel = {
@@ -17,6 +17,7 @@ describe('store selector', () => {
         email: 'email@email.com',
       },
     ],
+    infoTextToDisplay: 'text',
   };
 
   it('should return all users', () => {
@@ -24,5 +25,11 @@ describe('store selector', () => {
 
     expect(result.length).toBe(2);
     expect(result).toEqual(initialState.users);
+  });
+
+  it('should return info text', () => {
+    const result = selectInfoTextToDisplay.projector(initialState);
+
+    expect(result).toEqual('text');
   });
 });

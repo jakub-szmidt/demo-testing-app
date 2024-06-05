@@ -7,7 +7,7 @@ import {
   navigateToRootPage,
   setInfoTextToDisplay,
 } from './store.actions';
-import { map, switchMap, tap } from 'rxjs';
+import { catchError, map, of, switchMap, tap } from 'rxjs';
 import { INFO_ROUTE, ROOT_ROUTE } from '../routes/app.routes';
 
 @Injectable()
@@ -22,13 +22,14 @@ export class StoreEffects {
     return this.actions$.pipe(
       ofType(navigateToInfoPage),
       switchMap(() =>
-        this.infoService
-          .getInfo()
-          .pipe(
-            map((response) =>
-              setInfoTextToDisplay({ textToDisplay: response.textToDisplay }),
-            ),
+        this.infoService.getInfo().pipe(
+          map((response) =>
+            setInfoTextToDisplay({ textToDisplay: response.textToDisplay }),
           ),
+          catchError(() =>
+            of(setInfoTextToDisplay({ textToDisplay: 'error' })),
+          ),
+        ),
       ),
       tap(() => this.router.navigate([INFO_ROUTE])),
     );
@@ -38,7 +39,7 @@ export class StoreEffects {
     () => {
       return this.actions$.pipe(
         ofType(navigateToRootPage),
-        switchMap(() => this.router.navigate([ROOT_ROUTE])),
+        tap(() => this.router.navigate([ROOT_ROUTE])),
       );
     },
     {

@@ -48,6 +48,7 @@ describe('UserListComponent', () => {
       ]),
       onAddClick: (): void => {},
       onRemoveClick: (): void => {},
+      onInfoClick: (): void => {},
     };
 
     fixture.detectChanges();
@@ -95,11 +96,52 @@ describe('UserListComponent', () => {
     expect(button).toBeVisible();
   });
 
+  it('should call onAddClick method when Add Random User button is clicked', () => {
+    jest.spyOn(component.props, 'onAddClick');
+    const button: HTMLElement = debugElement.query(
+      By.css('#add-random-user-button'),
+    ).nativeElement;
+
+    button.click();
+
+    expect(component.props.onAddClick).toHaveBeenCalled();
+  });
+
   it('should display Remove Last User button', () => {
     const button: HTMLElement = debugElement.query(
       By.css('#remove-last-user-button'),
     ).nativeElement;
 
     expect(button).toBeVisible();
+  });
+
+  it('should call onRemoveClick method when Remove Last User button is clicked', () => {
+    jest.spyOn(component.props, 'onRemoveClick');
+    const button: HTMLElement = debugElement.query(
+      By.css('#remove-last-user-button'),
+    ).nativeElement;
+
+    button.click();
+
+    expect(component.props.onRemoveClick).toHaveBeenCalled();
+  });
+
+  it('should display Info button', () => {
+    const button: HTMLElement = debugElement.query(
+      By.css('#info-button'),
+    ).nativeElement;
+
+    expect(button).toBeVisible();
+  });
+
+  it('should call onAddClick method when Add Random User button is clicked', () => {
+    jest.spyOn(component.props, 'onInfoClick');
+    const button: HTMLElement = debugElement.query(
+      By.css('#info-button'),
+    ).nativeElement;
+
+    button.click();
+
+    expect(component.props.onInfoClick).toHaveBeenCalled();
   });
 });

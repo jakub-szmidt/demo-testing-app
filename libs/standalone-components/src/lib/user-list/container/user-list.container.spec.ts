@@ -3,8 +3,13 @@ import { UserListContainer } from './user-list.container';
 import { of } from 'rxjs';
 import { Component, DebugElement, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { UserListComponentProps, UsersService } from '@demo-testing-app/shared';
+import {
+  StoreActions,
+  UserListComponentProps,
+  UsersService,
+} from '@demo-testing-app/shared';
 import { UserListComponent } from '../component/user-list.component';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 
 const mockUsersService = {
   getUsers: jest.fn(),
@@ -14,14 +19,7 @@ const mockUsersService = {
 
 @Component({
   selector: 'lib-user-list-component',
-  template: `
-    <button id="add-random-user-button" (click)="props.onAddClick()">
-      Add random user
-    </button>
-    <button id="remove-last-user-button" (click)="props.onRemoveClick()">
-      Remove last user
-    </button>
-  `,
+  template: ``,
   standalone: true,
 })
 class MockUserListComponent {
@@ -32,6 +30,7 @@ describe('UserListContainer', () => {
   let component: UserListContainer;
   let fixture: ComponentFixture<UserListContainer>;
   let debugElement: DebugElement;
+  let store: MockStore;
 
   beforeEach(async () => {
     TestBed.overrideComponent(UserListContainer, {
@@ -41,13 +40,16 @@ describe('UserListContainer', () => {
 
     await TestBed.configureTestingModule({
       imports: [UserListContainer],
-      providers: [{ provide: UsersService, useValue: mockUsersService }],
+      providers: [
+        { provide: UsersService, useValue: mockUsersService },
+        provideMockStore(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UserListContainer);
-
     component = fixture.componentInstance;
     debugElement = fixture.debugElement;
+    store = TestBed.inject(MockStore);
 
     fixture.detectChanges();
   });
@@ -97,23 +99,24 @@ describe('UserListContainer', () => {
     });
   });
 
-  it('should call addRandomUser method on Add Random User click', () => {
-    const button: HTMLElement = debugElement.query(
-      By.css('#add-random-user-button'),
-    ).nativeElement;
-
-    button.click();
+  it(`should call service's addRandomUser method on onAddClick`, () => {
+    component.props.componentProps.onAddClick();
 
     expect(mockUsersService.addRandomUser).toHaveBeenCalled();
   });
 
-  it('should call removeLastUser method on Remove Last User click', () => {
-    const button: HTMLElement = debugElement.query(
-      By.css('#remove-last-user-button'),
-    ).nativeElement;
-
-    button.click();
+  it(`should call service's removeLastUser method on onRemoveClick`, () => {
+    component.props.componentProps.onRemoveClick();
 
     expect(mockUsersService.removeLastUser).toHaveBeenCalled();
+  });
+
+  it(`should dispatch navigateToInfoPage action on onInfoClick`, () => {
+    jest.spyOn(store, 'dispatch');
+    component.props.componentProps.onInfoClick();
+
+    expect(store.dispatch).toHaveBeenCalledWith(
+      StoreActions.navigateToInfoPage(),
+    );
   });
 });
