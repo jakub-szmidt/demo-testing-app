@@ -9,7 +9,7 @@ export class HighlightDirective {
   constructor(private el: ElementRef) {}
 
   @HostListener('mouseenter') onMouseEnter(): void {
-    this.highlight(Color.Red);
+    this.highlight(Color.Yellow);
   }
 
   @HostListener('mouseleave') onMouseLeave(): void {
