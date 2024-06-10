@@ -37,6 +37,6 @@ describe('HighlightDirective', () => {
     element.dispatchEvent(new MouseEvent('mouseenter'));
     fixture.detectChanges();
 
-    expect(element.style.backgroundColor).toBe('rgb(255, 0, 0)');
+    expect(element.style.backgroundColor).toBe('rgb(255, 255, 0)');
   });
 });

@@ -31,20 +31,24 @@ describe('InfoComponent', () => {
   });
 
   it('should display info text', () => {
-    const textElement = debugElement.query(By.css('p')).nativeElement;
+    const textElement = debugElement.query(By.css('.info')).nativeElement;
 
     expect(textElement.textContent).toContain('text');
   });
 
   it('should display Back button', () => {
-    const buttonElement = debugElement.query(By.css('button')).nativeElement;
+    const buttonElement = debugElement.query(
+      By.css('#back-button'),
+    ).nativeElement;
 
     expect(buttonElement).toBeVisible();
   });
 
   it('should call onBackClick when Back button is clicked', () => {
     jest.spyOn(component.props, 'onBackClick');
-    const buttonElement = debugElement.query(By.css('button')).nativeElement;
+    const buttonElement = debugElement.query(
+      By.css('#back-button'),
+    ).nativeElement;
 
     buttonElement.click();
 

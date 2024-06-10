@@ -8,6 +8,7 @@ import {
   MockHighlightDirective,
   MockMailPipe,
 } from '@demo-testing-app/shared';
+import { MatCardModule } from '@angular/material/card';
 
 describe('UserComponent', () => {
   let component: UserComponent;
@@ -16,7 +17,7 @@ describe('UserComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MockCapitalizePipe, MockHighlightDirective],
+      imports: [MockCapitalizePipe, MockHighlightDirective, MatCardModule],
       declarations: [UserComponent, MockMailPipe, MockBoldDirective],
     }).compileComponents();
 
