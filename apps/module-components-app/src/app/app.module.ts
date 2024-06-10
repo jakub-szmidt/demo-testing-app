@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreEffects, StoreReducer } from '@demo-testing-app/shared';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,8 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
       StoreReducer.reducer,
     ),
     StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
+    BrowserAnimationsModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

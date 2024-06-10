@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
 import {
   CapitalizePipe,
   HighlightDirective,
@@ -10,7 +11,13 @@ import {
 @Component({
   selector: 'lib-user-component',
   standalone: true,
-  imports: [CommonModule, CapitalizePipe, SharedModule, HighlightDirective],
+  imports: [
+    CommonModule,
+    CapitalizePipe,
+    SharedModule,
+    HighlightDirective,
+    MatCardModule,
+  ],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

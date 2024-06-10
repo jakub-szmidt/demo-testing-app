@@ -11,9 +11,18 @@ import {
 } from '@demo-testing-app/shared';
 import { InfoComponent } from './info/component/info.component';
 import { InfoContainer } from './info/container/info.container';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
-  imports: [CommonModule, CapitalizePipe, SharedModule, HighlightDirective],
+  imports: [
+    CommonModule,
+    CapitalizePipe,
+    SharedModule,
+    HighlightDirective,
+    MatButtonModule,
+    MatCardModule,
+  ],
   declarations: [
     UserComponent,
     UserContainer,

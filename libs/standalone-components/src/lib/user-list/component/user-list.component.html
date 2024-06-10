@@ -1,16 +1,32 @@
-@for (user of props.users$ | async; track user; let index = $index) {
-  <lib-user-container
-    [id]="'user-' + (index + 1)"
-    [user]="user"
-  ></lib-user-container>
-}
+<div class="inner-grid">
+  @if ((props.users$ | async)!.length !== 0) {
+    @for (user of props.users$ | async; track user; let index = $index) {
+      <lib-user-container
+        [id]="'user-' + (index + 1)"
+        [user]="user"
+      ></lib-user-container>
+    }
+  } @else {
+    <div class="info">No users found</div>
+  }
+</div>
 
-<div>
-  <button id="add-random-user-button" (click)="props.onAddClick()">
+<div class="buttons-container">
+  <button
+    mat-raised-button
+    id="add-random-user-button"
+    (click)="props.onAddClick()"
+  >
     Add random user
   </button>
-  <button id="remove-last-user-button" (click)="props.onRemoveClick()">
+  <button
+    mat-raised-button
+    id="remove-last-user-button"
+    (click)="props.onRemoveClick()"
+  >
     Remove last user
   </button>
-  <button id="info-button" (click)="props.onInfoClick()">Info</button>
+  <button mat-raised-button id="info-button" (click)="props.onInfoClick()">
+    Info
+  </button>
 </div>

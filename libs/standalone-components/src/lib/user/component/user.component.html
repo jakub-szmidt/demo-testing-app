@@ -1,10 +1,34 @@
-<h3 id="user-id-title" libHighlight>User ID</h3>
-<div id="user-id">{{ user.id }}</div>
-<h3 id="user-name-title">User Name</h3>
-<div id="user-name" libBold>{{ user.name | capitalize }}</div>
-<h3 id="user-last-name-title">User Last Name</h3>
-<div id="user-last-name" libBold>{{ user.lastName | capitalize }}</div>
-<h3 id="user-email-title">User Email</h3>
-<div id="user-email">
-  <a [href]="user.email | mail">{{ user.email }}</a>
-</div>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title id="user-id-title"> User ID </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p id="user-id" libHighlight>{{ user.id }}</p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title id="user-name-title"> User Name </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p id="user-name" libBold>{{ user.name | capitalize }}</p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title id="user-last-name-title"> User Last Name </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p id="user-last-name" libBold>{{ user.lastName | capitalize }}</p>
+  </mat-card-content>
+</mat-card>
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title id="user-email-title"> User Email </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p id="user-email">
+      <a [href]="user.email | mail">{{ user.email }}</a>
+    </p>
+  </mat-card-content>
+</mat-card>

@@ -1,2 +1,6 @@
-<p>{{ props.textToDisplay$ | async }}</p>
-<button id="back-button" (click)="props.onBackClick()">Back</button>
+<div class="info">{{ props.textToDisplay$ | async }}</div>
+<div class="buttons-container">
+  <button mat-raised-button id="back-button" (click)="props.onBackClick()">
+    Back
+  </button>
+</div>

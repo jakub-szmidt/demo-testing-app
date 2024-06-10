@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/demo-testing-app",
         "index": "apps/standalone-components-app/src/index.html",
         "browser": "apps/standalone-components-app/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/standalone-components-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "apps/standalone-components-app/src/favicon.ico",
           "apps/standalone-components-app/src/assets"
         ],
-        "styles": ["apps/standalone-components-app/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/indigo-pink.css",
+          "libs/shared/src/lib/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -71,12 +78,16 @@
     "lint": {
       "executor": "@nx/eslint:lint",
       "options": {
-        "lintFilePatterns": ["apps/standalone-components-app/src"]
+        "lintFilePatterns": [
+          "apps/standalone-components-app/src"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectName}"
+      ],
       "options": {
         "jestConfig": "apps/standalone-components-app/jest.config.app.ts"
       }

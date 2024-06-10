@@ -1,0 +1,21 @@
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+button {
+  margin: 4px;
+}
+
+.buttons-container {
+  position: sticky;
+  align-self: start;
+  margin: 10px;
+  top: 10px;
+}
+
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
