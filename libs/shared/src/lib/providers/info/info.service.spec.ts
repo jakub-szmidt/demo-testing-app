@@ -32,6 +32,7 @@ describe('InfoService', () => {
       textToDisplay: 'text from http',
     };
 
+    //this is the piece of the service we really want to test
     service.getInfo().subscribe((results) => {
       expect(results).toEqual(data);
       done();
