@@ -37,8 +37,8 @@ describe('InfoService', () => {
       done();
     });
 
-    const req = httpMock.expectOne(`/api/infoText`);
+    const req = httpMock.expectOne(`/api/infoText`); //mocking request and expect that one has been made
     expect(req.request.method).toBe('GET');
-    req.flush(data);
+    req.flush(data); //resolving request
   });
 });
