@@ -3,7 +3,7 @@ import { UsersService } from './users.service';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { StoreRootModel } from '../../store/store.models';
 import { IUser } from '../../models/user.model';
-import { selectUsers } from '../../store/store.selectors';
+import * as StoreSelectors from '../../store/store.selectors';
 import { addUser, removeLastUser, removeUser } from '../../store/store.actions';
 
 const initialState: StoreRootModel = {
@@ -48,12 +48,14 @@ describe('UsersService', () => {
       email: 'email@email.com',
     };
 
-    store.overrideSelector(selectUsers, [user]);
+    jest.spyOn(store, 'select');
+    store.overrideSelector(StoreSelectors.selectUsers, [user]);
 
     service.getUsers().subscribe((result) => {
       expect(result).toEqual([user]);
       done();
     });
+    expect(store.select).toHaveBeenCalledWith(StoreSelectors.selectUsers);
   });
 
   it('should dispatch addUser action', () => {
