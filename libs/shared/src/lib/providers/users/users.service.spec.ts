@@ -96,4 +96,10 @@ describe('UsersService', () => {
 
     expect(store.dispatch).toHaveBeenCalledWith(removeLastUser());
   });
+
+  it(`should return service's name`, () => {
+    const result = service.getServiceName();
+
+    expect(result).toEqual('UsersService');
+  });
 });

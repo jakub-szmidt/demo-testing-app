@@ -11,6 +11,8 @@ import { generateRandomUser } from '../../utils/utils';
   providedIn: 'root',
 })
 export class UsersService {
+  private readonly SERVICE_NAME = 'UsersService';
+
   constructor(private store: Store<StoreRootModel>) {}
 
   getUsers(): Observable<IUser[]> {
@@ -33,5 +35,9 @@ export class UsersService {
 
   removeLastUser(): void {
     this.store.dispatch(StoreActions.removeLastUser());
+  }
+
+  getServiceName(): string {
+    return this.SERVICE_NAME;
   }
 }
